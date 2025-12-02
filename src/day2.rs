@@ -1,3 +1,5 @@
+use tracing::info;
+
 fn is_invalid(n: &usize) -> bool {
     let digits = n.ilog10() + 1;
     if !digits.is_multiple_of(2) {
@@ -14,6 +16,7 @@ fn is_invalid(n: &usize) -> bool {
     }
 }
 
+#[tracing::instrument]
 fn is_really_invalid(n: &usize) -> bool {
     let digits = n.ilog10() + 1;
 
@@ -73,10 +76,10 @@ mod test {
     #[case(123123, true)]
     #[case(1188511885, true)]
     fn test_really_ivalid(#[case] n: usize, #[case] expected: bool) {
-        assert_eq!(is_really_invalid(&n), expected)
+        assert_eq!(is_really_invalid(&n), expected);
     }
 
-    #[test]
+    #[test_log::test]
     fn test_solution() {
         assert_eq!(
             process(include_str!("../input/day2_0.txt"), is_invalid),
