@@ -5,5 +5,10 @@ edition = "2024"
 
 [dependencies]
 rstest = "0.26.1"
-test-log = "0.2.19"
 tracing = "0.1.43"
+tracing-subscriber = "0.3.22"
+
+[dependencies.test-log]
+version = "0.2.19"
+features = ["trace", "color"]
+default-features = false

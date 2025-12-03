@@ -1,5 +1,3 @@
-use tracing::info;
-
 fn is_invalid(n: &usize) -> bool {
     let digits = n.ilog10() + 1;
     if !digits.is_multiple_of(2) {

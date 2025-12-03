@@ -1,6 +1,6 @@
-use tracing::debug;
+use tracing::info;
 
-#[tracing::instrument(skip(size))]
+#[tracing::instrument(skip(bank, size))]
 fn extract_joltage(bank: &str, size: usize) -> usize {
     fn find_max(line: &str) -> (char, usize) {
         if line.is_empty() {
@@ -20,12 +20,11 @@ fn extract_joltage(bank: &str, size: usize) -> usize {
 
     for i in 1..=size {
         let (digit, rest) = find_max(&bank[pos..bank.len() - (size - i)]);
-        debug!(?digit, rest);
         result = result * 10 + digit.to_digit(10).unwrap() as usize;
         pos += rest + 1;
     }
 
-    debug!(result);
+    info!(result);
     result
 }
 
@@ -48,13 +47,12 @@ mod test {
     #[case("234234234234278", 78)]
     #[case("818181911112111", 92)]
     #[case("111511611516111", 66)]
+    #[test_log::test]
     fn test_extract_max_joltage(#[case] input: &str, #[case] expected: usize) {
-        debug!(input);
         assert_eq!(extract_joltage(input, 2), expected);
     }
 
-    #[test]
-    #[ignore]
+    #[test_log::test]
     fn test_part1() {
         assert_eq!(process(include_str!("../input/day3_0.txt"), 2), "357");
         assert_eq!(process(include_str!("../input/day3_1.txt"), 2), "16854");
@@ -63,6 +61,9 @@ mod test {
             process(include_str!("../input/day3_0.txt"), 12),
             "3121910778619"
         );
-        assert_eq!(process(include_str!("../input/day3_1.txt"), 12), "16854");
+        assert_eq!(
+            process(include_str!("../input/day3_1.txt"), 12),
+            "167526011932478"
+        );
     }
 }
