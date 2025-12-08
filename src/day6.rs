@@ -101,7 +101,7 @@ mod test {
  45 64  387 23 
   6 98  215 314
 *   +   *   +  ";
-        // assert_eq!(process2(input), 3263827);
+        assert_eq!(process2(input), 3263827);
         assert_eq!(
             process2(include_str!("../input/day6_1.txt")),
             10600728112865
