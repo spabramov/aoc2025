@@ -5,12 +5,9 @@ fn process_part1(input: &str) -> u64 {
     input
         .lines()
         .map(|line| {
-            U64Vec2::from_slice(
-                line.split(',')
-                    .map(|v| v.parse::<u64>().expect("not a number"))
-                    .collect::<Vec<_>>()
-                    .as_slice(),
-            )
+            line.split_once(',')
+                .and_then(|(x, y)| Some(u64vec2(x.parse::<u64>().ok()?, y.parse::<u64>().ok()?)))
+                .expect("not a number pair")
         })
         .tuple_combinations()
         .map(|(a, b)| (a.x.abs_diff(b.x) + 1) * (a.y.abs_diff(b.y) + 1))
@@ -42,12 +39,11 @@ fn process_part2(input: &str) -> u64 {
         })
         .collect();
 
-    let mut lines: Vec<_> = tiles
+    let lines: Vec<_> = tiles
         .iter()
-        .tuple_windows()
+        .circular_tuple_windows()
         .map(|(a, b)| (*a, *b))
         .collect();
-    lines.push((*tiles.last().expect("no last"), tiles[0]));
 
     tiles
         .iter()
