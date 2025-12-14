@@ -54,15 +54,16 @@ mod test {
 
     #[test_log::test]
     fn test_part1() {
-        assert_eq!(process(include_str!("../input/day3_0.txt"), 2), "357");
-        assert_eq!(process(include_str!("../input/day3_1.txt"), 2), "16854");
+        let input = "987654321111111
+811111111111119
+234234234234278
+818181911112111";
+        assert_eq!(process(input, 2), "357");
+        assert_eq!(process(include_str!("../input/day03.txt"), 2), "16854");
 
+        assert_eq!(process(input, 12), "3121910778619");
         assert_eq!(
-            process(include_str!("../input/day3_0.txt"), 12),
-            "3121910778619"
-        );
-        assert_eq!(
-            process(include_str!("../input/day3_1.txt"), 12),
+            process(include_str!("../input/day03.txt"), 12),
             "167526011932478"
         );
     }

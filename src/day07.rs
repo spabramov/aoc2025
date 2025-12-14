@@ -80,7 +80,7 @@ mod test {
 .^.^.^.^.^...^.
 ...............";
         assert_eq!(process_part1(input), 21);
-        assert_eq!(process_part1(include_str!("../input/day7_1.txt")), 1646);
+        assert_eq!(process_part1(include_str!("../input/day07.txt")), 1646);
     }
     #[test_log::test]
     fn test_part2() {
@@ -102,7 +102,7 @@ mod test {
 ...............";
         assert_eq!(process_part2(input), 40);
         assert_eq!(
-            process_part2(include_str!("../input/day7_1.txt")),
+            process_part2(include_str!("../input/day07.txt")),
             32451134474991
         );
     }

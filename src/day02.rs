@@ -79,20 +79,15 @@ mod test {
 
     #[test_log::test]
     fn test_solution() {
+        let input = "11-22,95-115,998-1012,1188511880-1188511890,222220-222224,1698522-1698528,446443-446449,38593856-38593862,565653-565659,824824821-824824827,2121212118-2121212124";
+        assert_eq!(process(input, is_invalid), "1227775554");
         assert_eq!(
-            process(include_str!("../input/day2_0.txt"), is_invalid),
-            "1227775554"
-        );
-        assert_eq!(
-            process(include_str!("../input/day2_1.txt"), is_invalid),
+            process(include_str!("../input/day02.txt"), is_invalid),
             "19219508902"
         );
+        assert_eq!(process(input, is_really_invalid), "4174379265");
         assert_eq!(
-            process(include_str!("../input/day2_0.txt"), is_really_invalid),
-            "4174379265"
-        );
-        assert_eq!(
-            process(include_str!("../input/day2_1.txt"), is_really_invalid),
+            process(include_str!("../input/day02.txt"), is_really_invalid),
             "27180728081"
         );
     }

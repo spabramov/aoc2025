@@ -73,9 +73,9 @@ mod test {
 @.@.@@@.@.";
 
         assert_eq!(process(input), 13);
-        assert_eq!(process(include_str!("../input/day4_1.txt")), 1505);
+        assert_eq!(process(include_str!("../input/day04.txt")), 1505);
 
         assert_eq!(process2(input), 43);
-        assert_eq!(process2(include_str!("../input/day4_1.txt")), 1505);
+        assert_eq!(process2(include_str!("../input/day04.txt")), 9182);
     }
 }

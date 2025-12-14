@@ -72,24 +72,40 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_solution_1_0() {
+    fn test_part1() {
+        let input = "L68
+L30
+R48
+L5
+R60
+L55
+L1
+L99
+R14
+L82
+";
+        assert_eq!(count_rotations_point_at_zeroes(input), 3);
         assert_eq!(
-            count_rotations_point_at_zeroes(include_str!("../input/day1_0.txt")),
-            3
-        );
-        assert_eq!(
-            count_rotations_click_at_zeroes(include_str!("../input/day1_0.txt")),
-            6
+            count_rotations_point_at_zeroes(include_str!("../input/day01.txt")),
+            984
         );
     }
     #[test]
-    fn test_solution_1_1() {
+    fn test_part2() {
+        let input = "L68
+L30
+R48
+L5
+R60
+L55
+L1
+L99
+R14
+L82
+";
+        assert_eq!(count_rotations_click_at_zeroes(input), 6);
         assert_eq!(
-            count_rotations_point_at_zeroes(include_str!("../input/day1_1.txt")),
-            984
-        );
-        assert_eq!(
-            count_rotations_click_at_zeroes(include_str!("../input/day1_1.txt")),
+            count_rotations_click_at_zeroes(include_str!("../input/day01.txt")),
             5657
         );
     }

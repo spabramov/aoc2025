@@ -92,12 +92,15 @@ mod test {
 17
 32";
         assert_eq!(process(input), 3);
-        assert_eq!(process(include_str!("../input/day5_1.txt")), 635);
+        assert_eq!(process(include_str!("../input/day05.txt")), 635);
         assert_eq!(process2(input), 14);
     }
 
     #[test_log::test]
     fn test_part2() {
-        assert_eq!(process2(include_str!("../input/day5_1.txt")), 0);
+        assert_eq!(
+            process2(include_str!("../input/day05.txt")),
+            369761800782619
+        );
     }
 }
